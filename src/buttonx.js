@@ -3,7 +3,7 @@ import './index.css';
 
 const Nepar = (props) => {
     return (
-        <button
+        <button onClick = {props.onClick}
             className="Btn"
             >{props.label}</button>
     );

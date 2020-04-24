@@ -6,11 +6,33 @@ import cetiri from './assets/cetiri.svg';
 import pet from './assets/pet.svg';
 
 
-const Igrac = (props) => {
+const Igrac = ({brojevi}) => {
+    let source = "";
+    switch (brojevi.toLowerCase()) {
+        case 'jedan':
+            source = jedan;
+            break;
+        case 'dva':
+            source = dva;
+            break;
+        case 'tri':
+            source = tri;
+            break;
+        case 'cetiri':
+            source = cetiri;
+            break;
+        case 'pet' :
+            source = pet;
+            break;
+        default:
+            break;
+    }
     return (
         <div className = "igrac">
             <img className="slika-igrac"
-                src = {jedan} alt = "jedan"
+                src = {
+                    source
+                } alt = "1 2 3 4 5"
             />
         </div>
     )

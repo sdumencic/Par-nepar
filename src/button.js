@@ -3,7 +3,7 @@ import './index.css';
 
 const Hand = (props) => {
     return (
-        <button
+        <button onClick = {props.onClick}
             className="brojeviBtn"
             >{props.label}</button>
     );
