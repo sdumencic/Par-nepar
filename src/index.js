@@ -85,7 +85,7 @@ class App extends React.Component {
     if(this.state.pobjednik === "igrac") {
         return "Pobjednik"   
     } else {
-        return "Nazalost, izgubio si"
+        return "Nažalost, izgubio si"
     }
   }
 
@@ -134,7 +134,7 @@ class App extends React.Component {
         </div>
 
           <div className = "history">
-            <h2 style = {{textAlign: "center"}} className = "historyText">Odigrane igre</h2>
+            <h2 style = {{textAlign: "center"}} className = "historyNaslov">Odigrane igre</h2>
             {history.length !== 0 ? <ol style = {{textAlign: "center"}} className = "historyText">{history}</ol> : <p style = {{textAlign: "center"}} className = "historyText">Nema odigranih igara</p>}
           </div>
 

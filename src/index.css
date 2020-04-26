@@ -18,8 +18,10 @@
 
 .score{
   position: fixed;
-  top: 100px;
-  left: 50%;
+  font-family: ink Free;
+  top: 220px;
+  right: 47%;
+  font-size: 40px;
 }
 
 body {
@@ -118,9 +120,9 @@ body {
 }
 
 .pobjednik {
-  width: 100px;
-  height: 55px;
-  margin: 10px auto;
+  width: 200px;
+  height: 20px;
+  margin: 1px auto;
   color: #2C9582;
   font-size: 18px;
   text-align: center;
@@ -129,6 +131,7 @@ body {
 .slika-igrac {
   height: 200px;
   width: auto;
+  margin-top: 100px;
 }
 
 .history {
@@ -141,6 +144,14 @@ body {
   position: fixed;
   top: 10px;
   right: 10px;
+}
+
+.historyNaslov{
+  background-color: rgba(38, 105, 98, 0);
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  font-family: ink Free;
+  margin-bottom: -10px;
 }
 
 .historyText{
@@ -159,6 +170,7 @@ button {
   border-radius: 20px;
   background: #AEAEAE;
   outline: none;
+  font-family: ink Free;
 }
 
 button:hover {
