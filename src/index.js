@@ -95,14 +95,14 @@ class App extends React.Component {
     const sveOdabrano = (igrac !== "") && (nePar !== "");
 
     const history = igre.map((element, index) =>(
-      <li key = {index}>Ja: {element.igrac} ({element.nePar}), Racunalo: {element.racunalo}, Pobjednik: {element.pobjednik}</li>
+      <li key = {index} className = "historyText">Ja: {element.igrac} ({element.nePar}), Racunalo: {element.racunalo}, Pobjednik: {element.pobjednik}</li>
     ));
     return (
       <div>
-        <h1>Par nepar</h1>
+        <h1 className="naslov">Par nepar</h1>
 
         <div style = {{textAlign: "center"}}>
-          <h2>{pobjede} : {porazi}</h2>
+          <h2 className = "score">{pobjede} : {porazi}</h2>
         </div>
 
         <div>
@@ -134,8 +134,8 @@ class App extends React.Component {
         </div>
 
           <div className = "history">
-            <h2 style = {{textAlign: "center"}}>Odigrane igre</h2>
-            {history.length !== 0 ? <ol style = {{textAlign: "center"}}>{history}</ol> : <p style = {{textAlign: "center"}}>Nema odigranih igara</p>}
+            <h2 style = {{textAlign: "center"}} className = "historyText">Odigrane igre</h2>
+            {history.length !== 0 ? <ol style = {{textAlign: "center"}} className = "historyText">{history}</ol> : <p style = {{textAlign: "center"}} className = "historyText">Nema odigranih igara</p>}
           </div>
 
       </div>
