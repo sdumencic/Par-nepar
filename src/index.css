@@ -32,6 +32,17 @@ body {
   background: #55C8AF;
 }
 
+.brojeviBtnActive {
+  width: 100px;
+  height: 50px;
+  display: inline;
+  margin: auto 20px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  background: #E091B6;
+}
+
 .Btn {
   width: 100px;
   height: 50px;
@@ -43,6 +54,20 @@ body {
   font-size: 18px;
   border-radius: 20px;
   background: #AEAEAE;
+  outline: none;
+}
+
+.BtnActive {
+  width: 100px;
+  height: 50px;
+  display: inline;
+  text-align: center;
+  margin-left: 200px;
+  margin-right: -110px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  background: #E091B6;
   outline: none;
 }
 

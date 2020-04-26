@@ -15,6 +15,7 @@ class App extends React.Component {
 
   state = {
     igrac: brojevi[0],
+    nePar: nepar[0],
     racunalo: brojevi[0],
     pobjednik: "",
   }
@@ -49,25 +50,23 @@ class App extends React.Component {
   };
 
   selectBroj = (brojevi) => {
-    //console.log(brojevi)
     this.setState({
       igrac: brojevi,
-      winner: ""
+      pobjednik: ""
     });
   };
 
   selectNepar = (nepar) => {
-    console.log(nepar)
     this.setState({
-      igrac: nepar,
-      winner: ""
+      nePar: nepar,
+      pobjednik: ""
     });
   };
 
   select = () => {
-    if(this.selectPobjednik() === "Nepar" && this.selectNepar() === "nepar") {
+    if(this.selectPobjednik() === "Nepar" && this.state.nePar === "nepar") {
         return "pobjednik"
-    } else if (this.selectPobjednik() === "Nepar" && this.selectNepar() === "nepar"){
+    } else if (this.selectPobjednik() === "Par" && this.state.nePar === "par"){
         return "pobjednik"
     } else {
       return "Nazalost, izgubio si"
@@ -76,7 +75,7 @@ class App extends React.Component {
 
 
   render() {
-    const {igrac, racunalo, pobjednik} = this.state;
+    const {igrac, racunalo, pobjednik, nePar} = this.state;
     return (
       <div>
         <h1>Par nepar</h1>
@@ -87,92 +86,27 @@ class App extends React.Component {
         </div>
 
         <div>          
-          <Hand onClick={() => this.selectBroj("jedan")} label="1"/> 
-          <Hand onClick={() => this.selectBroj("dva")} label="2"/>
-          <Hand onClick={() => this.selectBroj("tri")} label="3"/>
-          <Hand onClick={() => this.selectBroj("cetiri")} label="4"/>
-          <Hand onClick={() => this.selectBroj("pet")} label="5"/>
-          {/*<div>
-          <button
-            className="brojeviBtn"
-            onClick={() => this.selectBroj("jedan")}
-          >
-            1
-          </button>
-
-          <button
-            className="brojeviBtn"
-            onClick={() => this.selectBroj("dva")}
-          >
-            2
-          </button>
-
-          <button
-            className="brojeviBtn"
-            onClick={() => this.selectBroj("tri")}
-          >
-            3
-          </button>
-
-          <button
-            className="brojeviBtn"
-            onClick={() => this.selectBroj("cetiri")}
-          >
-            4
-          </button>
-
-          <button
-            className="brojeviBtn"
-            onClick={() => this.selectBroj("pet")}
-          >
-            5
-          </button>
+          <Hand onClick={() => this.selectBroj("jedan")} label="1" className = {igrac === "jedan" ? "brojeviBtnActive" : "brojeviBtn"}/> 
+          <Hand onClick={() => this.selectBroj("dva")} label="2" className = {igrac === "dva" ? "brojeviBtnActive" : "brojeviBtn"}/>
+          <Hand onClick={() => this.selectBroj("tri")} label="3" className = {igrac === "tri" ? "brojeviBtnActive" : "brojeviBtn"}/>
+          <Hand onClick={() => this.selectBroj("cetiri")} label="4" className = {igrac === "cetiri" ? "brojeviBtnActive" : "brojeviBtn"}/>
+          <Hand onClick={() => this.selectBroj("pet")} label="5" className = {igrac === "pet" ? "brojeviBtnActive" : "brojeviBtn"}/>
           
-          </div>*/}
-
           <div>
-            <Nepar onClick={() => this.selectNepar("par")} label="Par"/>
-            <Nepar onClick={() => this.selectNepar("nepar")} label="Nepar"/>
+            <Nepar onClick={() => this.selectNepar("par")} label="Par" className = {nePar === "par" ? "BtnActive" : "Btn"}/>
+            <Nepar onClick={() => this.selectNepar("nepar")} label="Nepar" className = {nePar === "nepar" ? "BtnActive" : "Btn"}/>
           </div>
 
-          <div className="pobjednik">{pobjednik ? this.selectPobjednik() : null}</div>
+          <div className="pobjednik">{pobjednik ? this.select() : null}</div>
           <button type="button" onClick={this.startIgra}>
           Start!
           </button>
           
-          </div>
-
-          {/*<div> {this.select() === "pobjednik" ? <h1>Pobjednik</h1> : <h1>Gubitnik</h1> }
-          </div>*/}
-          {/*{this.select()}*/}
-        
-        {/*<div>
-          <Pobjednik />
-
-          <button onClick = {this.startIgra} > Start </button>
-        </div>*/}
-        
+        </div>
+              
       </div>
     );
   }
 }
-
-
-/*const App = () => ( //funkcija bez parametara
-  <div>
-      <p>Hello wolrd</p>
-      <p>Hello world {Math.random()}</p>
-  </div>
-)*/
-
-//ili
-
-/*const App = () => {
-  return (
-    <div>
-      <p>Hello world</p>
-    </div>
-  )
-}*/
 
 ReactDOM.render(<App />, document.getElementById('root'))
