@@ -71,6 +71,30 @@ body {
   outline: none;
 }
 
+.BtnStartDisabled {
+  width: 200px;
+  height: 50px;
+  display: block;
+  margin: 10px auto;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  background: #AEAEAE;
+  outline: none;
+}
+
+.BtnStartActive {
+  width: 200px;
+  height: 50px;
+  display: block;
+  margin: 10px auto;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 20px;
+  background: #E5B08A;
+  outline: none;
+}
+
 .player:nth-child(2) {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
@@ -89,6 +113,20 @@ body {
   height: 200px;
   width: auto;
 }
+
+.history {
+  overflow-y: scroll;
+  padding-left: 20px;
+  width: 400px;
+  height: 200px;
+  background-color: #29332F;
+  opacity: 0.5;
+  border-radius: 20px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
 button {
   width: 200px;
   height: 50px;

@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Igrac from "./igrac";
-import Hand from "./button";
+import Hand from "./Hand";
 import './index.css';
 import Pobjednik from "./pobjednik";
-import Nepar from "./buttonx";
+import Nepar from "./Nepar";
 /*import App from './App';
 import * as serviceWorker from './serviceWorker';*/
 
@@ -15,9 +15,12 @@ class App extends React.Component {
 
   state = {
     igrac: brojevi[0],
-    nePar: nepar[0],
+    nePar: "",
     racunalo: brojevi[0],
     pobjednik: "",
+    pobjede: 0,
+    porazi: 0,
+    igre: [] 
   }
 
   startIgra = () => {
@@ -30,22 +33,37 @@ class App extends React.Component {
       })
       if(count > 10) {
         clearInterval(interval);
-        this.setState({
-          pobjednik: this.selectPobjednik()
-        });
+        this.selectPobjednik();
       }
     }, 100);
   };
 
   selectPobjednik = () => {
-    const {igrac, racunalo} = this.state;
-    
+    const {igrac, racunalo, nePar, pobjede, porazi} = this.state;
+    let zbroj = "";
+    let { igre } = this.state;
     if((igrac === "jedan" || igrac === "tri" || igrac === "pet") && (racunalo === "dva" || racunalo === "cetiri")) {
-      return "Nepar";
+      zbroj = "nepar";
     } else if((racunalo === "jedan" || racunalo === "tri" || racunalo === "pet") && (igrac === "dva" || igrac === "cetiri")) {
-      return "Nepar";
+      zbroj = "nepar";
     } else {
-      return "Par";
+      zbroj = "par";
+    } 
+
+    if(zbroj === nePar) {
+      igre.push({igrac: igrac, racunalo: racunalo, nePar: nePar, pobjednik: "igrac"});
+      this.setState({
+        pobjednik: "igrac",
+        pobjede: pobjede + 1,
+        igre: igre
+        });
+    } else {
+      igre.push({igrac: igrac, racunalo: racunalo, nePar: nePar, pobjednik: "racunalo"});
+      this.setState({
+        pobjednik: "racunalo",        
+        porazi: porazi + 1,
+        igre: igre
+        });
     }
   };
 
@@ -64,21 +82,28 @@ class App extends React.Component {
   };
 
   select = () => {
-    if(this.selectPobjednik() === "Nepar" && this.state.nePar === "nepar") {
-        return "pobjednik"
-    } else if (this.selectPobjednik() === "Par" && this.state.nePar === "par"){
-        return "pobjednik"
+    if(this.state.pobjednik === "igrac") {
+        return "Pobjednik"   
     } else {
-      return "Nazalost, izgubio si"
+        return "Nazalost, izgubio si"
     }
   }
 
 
   render() {
-    const {igrac, racunalo, pobjednik, nePar} = this.state;
+    const {igrac, racunalo, pobjednik, nePar, pobjede, porazi, igre} = this.state;
+    const sveOdabrano = (igrac !== "") && (nePar !== "");
+
+    const history = igre.map((element, index) =>(
+      <li key = {index}>Ja: {element.igrac} ({element.nePar}), Racunalo: {element.racunalo}, Pobjednik: {element.pobjednik}</li>
+    ));
     return (
       <div>
         <h1>Par nepar</h1>
+
+        <div style = {{textAlign: "center"}}>
+          <h2>{pobjede} : {porazi}</h2>
+        </div>
 
         <div>
           <Igrac brojevi = {igrac}/>
@@ -98,12 +123,21 @@ class App extends React.Component {
           </div>
 
           <div className="pobjednik">{pobjednik ? this.select() : null}</div>
-          <button type="button" onClick={this.startIgra}>
+
+          {!sveOdabrano ? <button type="button" onClick={this.startIgra} disabled className="BtnStartDisabled">
           Start!
-          </button>
+          </button> : 
+            <button type="button" onClick={this.startIgra} className= "BtnStartActive">
+            Start!
+            </button>}          
           
         </div>
-              
+
+          <div className = "history">
+            <h2 style = {{textAlign: "center"}}>Odigrane igre</h2>
+            {history.length !== 0 ? <ol style = {{textAlign: "center"}}>{history}</ol> : <p style = {{textAlign: "center"}}>Nema odigranih igara</p>}
+          </div>
+
       </div>
     );
   }
