@@ -1,7 +1,6 @@
 import React from 'react';
-import './index.css';
 
-const Nepar = (props) => {
+const Hand = (props) => {
     return (
         <button onClick = {props.onClick}
             className={props.className}
@@ -9,4 +8,4 @@ const Nepar = (props) => {
     );
 }
 
-export default Nepar;
+export default Hand;
