@@ -3,13 +3,10 @@ import ReactDOM from 'react-dom';
 import Igrac from "./igrac";
 import Hand from "./Hand";
 import './index.css';
-import Pobjednik from "./pobjednik";
 import Nepar from "./Nepar";
-/*import App from './App';
-import * as serviceWorker from './serviceWorker';*/
+//import App from './App';
 
 const brojevi = ["jedan", "dva", "tri", "cetiri", "pet"];
-const nepar = ["par", "nepar"];
 
 class App extends React.Component {
 
