@@ -73,3 +73,5 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 * hand victory by abeldb from the Noun Project
 * hand victory by abeldb from the Noun Project
 * hand one by abeldb from the Noun Project
+
+background: made in paint
