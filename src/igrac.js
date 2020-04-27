@@ -1,9 +1,9 @@
 import React from 'react';
-import jedan from './assets/jedan.svg';
-import dva from './assets/dva.svg';
-import tri from './assets/tri.svg';
-import cetiri from './assets/cetiri.svg';
-import pet from './assets/pet.svg';
+import jedan from './assets/jedan.png';
+import dva from './assets/dva.png';
+import tri from './assets/tri.png';
+import cetiri from './assets/cetiri.png';
+import pet from './assets/pet.png';
 
 
 const Igrac = ({brojevi}) => {
