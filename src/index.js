@@ -86,6 +86,12 @@ class App extends React.Component {
     }
   }
 
+  ocistiHistory = () => {
+    this.setState({
+      igre: []
+    });
+  }
+
 
   render() {
     const {igrac, racunalo, pobjednik, nePar, pobjede, porazi, igre} = this.state;
@@ -132,6 +138,7 @@ class App extends React.Component {
 
           <div className = "history">
             <h2 style = {{textAlign: "center"}} className = "historyNaslov">Odigrane igre</h2>
+            <button type = "button" className="ocistiBtn" onClick={this.ocistiHistory}> 🗑 </button>
             {history.length !== 0 ? <ol style = {{textAlign: "center"}} className = "historyText">{history}</ol> : <p style = {{textAlign: "center"}} className = "historyText">Nema odigranih igara</p>}
           </div>
 
