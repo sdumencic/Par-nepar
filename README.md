@@ -16,7 +16,7 @@ You will also see any lint errors in the console.
 
 <img src="https://i.ibb.co/3rR3d8C/Fire-Shot-Capture-270-React-App-localhost.png" alt="Fire-Shot-Capture-270-React-App-localhost">
 
-## pictures used:
+## Pictures used:
 * five by abeldb from the Noun Project  (colored)
 * Four by abeldb from the Noun Project  (colored)
 * hand victory by abeldb from the Noun Project  (colored)
